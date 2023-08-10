@@ -9,7 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var flipsCount = 0
+    var flipsCount = 0 {
+        didSet {
+            flipsCountLabel.text = "Flips: \(flipsCount)"
+        }
+    }
     
     @IBOutlet weak var flipsCountLabel: UILabel!
     
@@ -19,10 +23,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchButton(_ sender: UIButton) {
+        flipsCount += 1
         flipCard(withEmoji: "🌸", on: sender)
     }
     
     @IBAction func touchSecondButton(_ sender: UIButton) {
+        flipsCount += 1
         flipCard(withEmoji: "🌹", on: sender)
     }
     
@@ -34,8 +40,6 @@ class ViewController: UIViewController {
             button.setTitle(emoji, for: .normal)
             button.backgroundColor = #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
         }
-        flipsCount += 1
-        flipsCountLabel.text = "Flips: \(flipsCount)"
     }
     
     
