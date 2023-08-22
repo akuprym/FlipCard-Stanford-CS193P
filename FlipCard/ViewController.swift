@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var cardButtons: [UIButton]!
     
+    var emojiChoices = ["🌸", "🌺", "🌸", "🌺"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -27,7 +29,7 @@ class ViewController: UIViewController {
     @IBAction func touchButton(_ sender: UIButton) {
         flipsCount += 1
         if let cardNumber = cardButtons.firstIndex(of: sender) {
-            print("Card Number: \(cardNumber)")
+            flipCard(withEmoji: emojiChoices[cardNumber], on: sender)
         } else {
             print("Chosen card wasn't in cardButtons")
         }
@@ -36,10 +38,10 @@ class ViewController: UIViewController {
         func flipCard (withEmoji emoji: String, on button: UIButton){
             if button.currentTitle == emoji {
                 button.setTitle("", for: .normal)
-                button.backgroundColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
+                button.backgroundColor = #colorLiteral(red: 0, green: 0.5603182912, blue: 0, alpha: 1)
             } else {
                 button.setTitle(emoji, for: .normal)
-                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                button.backgroundColor = #colorLiteral(red: 0, green: 0.5603182912, blue: 0, alpha: 1)
             }
         }
         
