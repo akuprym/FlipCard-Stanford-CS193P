@@ -8,8 +8,13 @@
 import Foundation
 
 struct Card {
-    
+
     var isFaceUp = false
     var isMatched = false
     var identifier: Int
+    
+    
+    init(identifier: Int) {
+        self.identifier = identifier
+    }
 }
