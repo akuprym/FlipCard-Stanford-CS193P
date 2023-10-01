@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    lazy var game = Concentration(numberOfPairsOfCards: cardButtons.count)
+    lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
     
     var flipsCount = 0 {
         didSet {
